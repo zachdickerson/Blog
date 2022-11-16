@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zach Dickerson's Blog</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/67a6ef27ee.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <img src="images/logo.png" class="logo">
+                <ul id="my-tabs">
+                    <li><a href='#header'>Home</a></li>
+                    <li><a href='#postGrad'>PostGradCode</a></li>
+                    <li><a href='#about'>About</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <!-- ---------------------Body class----------------------- -->
+
+    <div id="blogs">
+        <div class="container">
+            <div class="row">
+                <div class="column">
+                    {% for post in posts reversed %}
+                    <div class="card">
+                        <a style="text-decoration: none; color: black;" href="/post/{{post.id}}">
+                            <h2>{{post.title}}</h2>
+                            <h5>{{post.created_at}}</h5>
+                            <p>{{post.body|truncatewords:20}}</p>
+                        </a>
+                    </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ----------------- Footer Class ---------------- -->
+    <div class="footer">
+        <div class="social-icons">
+            <a href="https://github.com/zachdickerson" target="_blank"><i class="fa-brands fa-square-github"></i></a>
+            <a href="https://twitter.com/postgradcode" target="_blank"><i class="fa-brands fa-twitter-square"></i></a>
+            <a href="https://www.instagram.com/postgradcode/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/dickerson-zachary/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://www.youtube.com/channel/UCHYNWhgLVtMSBgntgg327YA" target="_blank"><i class="fa-brands fa-square-youtube"></i></a>
+        </div>
+    </div>
+
+</body>
+</html>
