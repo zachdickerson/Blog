@@ -27,6 +27,10 @@ body {
     color: #e3e3e3;
 }
 
+p {
+    line-height: 1.6;
+}
+
 /* ------ Heading  Styles -------- */
 
 #header {
@@ -92,7 +96,23 @@ nav ul li a:hover {
   clear: both;
 }
 
-/*----------- Footer Section-------------*/
+.img-sizing {
+    padding: 30px;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+}
+
+.title {
+    padding: 0 0 0 0;
+}
+
+h5 {
+    padding: 10px 0;
+}
+
+
+/*----------- Footer Section -------------*/
 
 .footer {
     background-color: #303841;
@@ -209,7 +229,8 @@ nav .fas {
         <div class="row">
             <div class="column">
                 <div class="card">
-                    <h1>{{posts.title}}</h1>
+                    <img src="{% static 'pythonphoto.jpg' %}" class="img-sizing">
+                    <h1 class = title>{{posts.title}}</h1>
                     <h5>{{posts.created_at}}</h5>
                     <p>{{posts.body}}</p>
                 </div>

@@ -27,6 +27,10 @@ body {
     color: #fff;
 }
 
+p {
+    line-height: 1.2;
+}
+
 /* ------ Heading  Styles -------- */
 
 #header {
@@ -95,8 +99,7 @@ nav ul li a:hover {
 .row,
 .column h2 {
     font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 15px;   
+    font-weight: 500;  
 }
 
 .column {
@@ -105,6 +108,20 @@ nav ul li a:hover {
 
 .column:hover {
     background: #f8f398;
+}
+
+.img-sizing {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
+h2 {
+    padding: 10px 0 0 0;
+}
+
+h5 {
+    padding: 10px 0;
 }
 
 /*----------- Footer Section-------------*/
@@ -232,6 +249,7 @@ nav .fas {
                 {% for post in posts reversed %}
                 <div class="column">
                     <div class="card">
+                        <img src="{% static 'pythonphoto.jpg' %}" class="img-sizing">
                         <a style="text-decoration: none; color: black;" href="/post/{{post.id}}">
                             <h2>{{post.title}}</h2>
                             <h5>{{post.created_at}}</h5>
