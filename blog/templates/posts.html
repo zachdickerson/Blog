@@ -111,6 +111,11 @@ h5 {
     padding: 10px 0;
 }
 
+.time-by{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+}
 
 /*----------- Footer Section -------------*/
 
@@ -231,7 +236,11 @@ nav .fas {
                 <div class="card">
                     <img src="{% static 'pythonphoto.jpg' %}" class="img-sizing">
                     <h1 class = title>{{posts.title}}</h1>
-                    <h5>{{posts.created_at}}</h5>
+                    <div class="time-by">
+                        <h5>Author: Zachary Dickerson</h5>
+                        <h5>||</h5>
+                        <h5>{{posts.created_at}}</h5>
+                    </div>
                     <p>{{posts.body}}</p>
                 </div>
             </div>
