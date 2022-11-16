@@ -94,7 +94,7 @@ nav ul li a:hover {
 }
 
 .column:hover {
-    background: #ffde59;
+    background: #f8f398;
 }
 
 /*----------- Footer Section-------------*/
@@ -128,4 +128,61 @@ nav ul li a:hover {
     transform: translateY(-5px);
 }
 
+/* ------- Responive Design ------------ */
 
+nav .fas {
+    display: none;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .row {
+        padding: 0 0 100px 0;
+    }
+
+    nav .fas {
+        display: block;
+        font-size: 25px;
+    }
+
+    nav ul {
+        background: #ffde59;
+        color: black;
+        position: fixed;
+        top: 0;
+        right: -200px;
+        width: 200px;
+        height: 100vh;
+        padding-top: 50px;
+        z-index: 2;
+        transition: right 0.5s;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 25px;
+    }
+
+    nav ul li a {
+        color: black;
+        font-size: 18px;
+        position: relative;
+        text-decoration: none;
+    }
+    
+    nav ul li a:hover {
+        color: #797a7d;
+    }
+
+    nav ul .fas {
+        position: absolute;
+        top: 25px;
+        left: 25px;
+        cursor: pointer;
+    }
+
+    .fas.fa-bars {
+        cursor: pointer;
+    }
+    
+}
