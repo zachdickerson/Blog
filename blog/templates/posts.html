@@ -1,14 +1,15 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zach Dickerson's Blog</title>
+    <title>Zach Dickerson's Blog Expansion Page</title>
     <!-- <link rel="stylesheet" href="styles.css"> -->
     <script src="https://kit.fontawesome.com/67a6ef27ee.js" crossorigin="anonymous"></script>
 <style>
-/* ------Default Styles -------- */
+/* ------ Default Styles -------- */
 
 * {
     box-sizing: border-box;
@@ -23,7 +24,7 @@ html {
 
 body {
     background: #5c636e;
-    color: #fff;
+    color: #e3e3e3;
 }
 
 /* ------ Heading  Styles -------- */
@@ -59,7 +60,7 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #e3e3e3;
     font-size: 18px;
     position: relative;
     text-decoration: none;
@@ -72,39 +73,23 @@ nav ul li a:hover {
 /* ------ Blog Posting Styles -------- */
 
 #blogs {
-    padding: 30px 0;
+    padding: 80px 50px;
+    color: black;
 }
 
-.row {
-    display: grid;
-    grid-gap: 40px;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    margin-top: 50px;
+.column {   
+    border: 3px solid #2e3338;
 }
 
-.row,
-.column {
-    background: #5c636e;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 300;
-    padding: 40px;
-    transition: all 0.5s, transform 0.5s;
+.card {
+   background-color: #e3e3e3;
+   padding: 20px;
 }
 
-.row,
-.column h2 {
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 15px;   
-}
-
-.column {
-    background: #f7f7f7;
-}
-
-.column:hover {
-    background: #f8f398;
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /*----------- Footer Section-------------*/
@@ -112,7 +97,7 @@ nav ul li a:hover {
 .footer {
     background-color: #303841;
     bottom: 0;
-    color: white;
+    color: #e3e3e3;
     height: 60px;
     left: 0;
     position: fixed;
@@ -199,12 +184,14 @@ nav .fas {
 
 </style>
 </head>
-
 <body>
+
+    <!-- ----------------------Header Class ------------------------ -->
+
     <div id="header">
         <div class="container">
             <nav>
-                <img src="logo.png" class="logo">
+                <img src="{% static 'logo.png' %}" class="logo">
                 <ul id="my-tabs">
                     <li><a href='#header'>Home</a></li>
                     <li><a href='#postGrad'>PostGradCode</a></li>
@@ -216,28 +203,22 @@ nav .fas {
         </div>
     </div>
 
-    <!-- ---------------------Body class----------------------- -->
+    <!-- ---------------------- Body Class ------------------------ -->
 
     <div id="blogs">
-        <div class="container">
-            <div class="row">
-                <div class="column">
-                    {% for post in posts reversed %}
-                    <div class="card">
-                        <a style="text-decoration: none; color: black;" href="/post/{{post.id}}">
-                            <h2>{{post.title}}</h2>
-                            <h5>{{post.created_at}}</h5>
-                            <p>{{post.body|truncatewords:20}}</p>
-                        </a>
-                    </div>
-                    {% endfor %}
+        <div class="row">
+            <div class="column">
+                <div class="card">
+                    <h1>{{posts.title}}</h1>
+                    <h5>{{posts.created_at}}</h5>
+                    <p>{{posts.body}}</p>
                 </div>
-
             </div>
         </div>
-    </div>
+    </div>  
 
-    <!-- ----------------- Footer Class ---------------- -->
+<!-- --------------------------- Footer Class -------------------- -->
+
     <div class="footer">
         <div class="social-icons">
             <a href="https://github.com/zachdickerson" target="_blank"><i class="fa-brands fa-square-github"></i></a>
