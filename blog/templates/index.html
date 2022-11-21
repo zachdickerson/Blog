@@ -74,10 +74,18 @@ nav ul li a:hover {
     color: #ffde59;
 }
 
+/*---------Title Styles --------------*/
+
+.title h1{
+    padding-top: 30px;
+    text-align: center;
+    font-size: 36px;
+}
+
 /* ------ Blog Posting Styles -------- */
 
 #blogs {
-    padding: 50px 0 90px 0;
+    padding: 30px 0 90px 0;
 }
 
 .row {
@@ -234,12 +242,27 @@ nav .fas {
                     <li><a href='#header'>Home</a></li>
                     <li><a href='#postGrad'>PostGradCode</a></li>
                     <li><a href='#about'>About</a></li>
+                    {% if user.is_authenticated %}
+                    <li><a href='logout'>Logout</a></li>
+                    {% else %}
+                    <li><a href='login'>Login or SignUp</a></li>
+                    {% endif %}
                     <i class="fas fa-times" onclick="closemenu()"></i>
                 </ul>
                 <i class="fas fa-bars" onclick="openmenu()"></i>
             </nav>
         </div>
     </div>
+    <!-- --------------------Title Class---------------------- -->
+
+    <div class="title">
+        {% if user.is_authenticated %}
+        <h1>Welcome {{user.username}}, to the Blog!</h1>
+        {% else %}
+        <h1>Welcome Guest, to the Blog!</h1>
+        {% endif %}
+    </div>
+
 
     <!-- ---------------------Body class----------------------- -->
 
